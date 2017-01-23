@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+@keyframes animdemo {
+	from{width:10%}
+	to{width:50%}
+}
+div {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: background 4s; /* For Safari 3.1 to 6.0 */
+    transition: background 4s;
+}
+#longer {
+	width:10%;
+	animation-name = none;
+}
+.animate {
+	animation-name: animdemo;
+	animation-duration: 1s;
+}
+</style>
+</head>
+<body>
+	<h1>Demonstration of CSS transition</h1>
+	<p>Click on the colored box below to change it's color from red to green</p>
+	<div id="box" onclick="goGreen()"></div>
+	<h2>Demonstration of CSS animation</h1>
+	<p>Hover over the text box and it will slowly lengthen.</p>
+	<input type="text" id="longer" onmouseover="lengthen()" onmouseout="shorten()">
+	<script>
+		function goGreen(){
+			document.getElementById("box").style.background = 'green';
+		}
+		function lengthen() {
+			document.getElementById("longer").classList.add("animate");
+		}
+		function shorten() {
+			document.getElementById("longer").style.width='50%';
+		}
+	</script>
+</body>
+</html>
