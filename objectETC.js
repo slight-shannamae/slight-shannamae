@@ -1,4 +1,4 @@
-function Student(fname, lname, id, major);{
+function Student(fname, lname, id, major){
 	this.f = fname;
 	this.l = lname;
 	this.i = function(){
@@ -12,7 +12,7 @@ function Student(fname, lname, id, major);{
 	}
 	this.m = major;
 	this.output = function(){
-		return this.f + " " +this.l +" "+this.i+" "+this.m;
+		return this.f + " " +this.l +" "+this.i()+" "+this.m;
 	}
 }
 function createStudent(){
@@ -23,24 +23,22 @@ function createStudent(){
 	
 	var student1 = new Student(f, l, i, m);
 	if(student1.i != null){
-		document.getElementById("echo").innerHTML = student1.output;
+		document.getElementById("echo").innerHTML = student1.output();
 	}
 	else{
 		document.getElementById("echo").innerHTML = "Student ID needs to be a number";
 	}
 	
 	return student1;
-}
+};
 function Employee (fname, lname, id, major, employer, job){
 	Student.call(this, fname, lname, id, major);
 	this.e = employer;
 	this.j = job;
-}
-Employee.prototype = Object.create(Student.prototype);
-	Employee.prototype.constructor = Employee;
-	Employee.prototype.output = function(){
-		return this.f + " " +this.l +" "+this.i+" "+this.m+" "+this.e+" "+this.j;
+	this.output = function(){
+		return this.f + " " +this.l +" "+this.i()+" "+this.m+" "+this.e+" "+this.j;
 	}
+}
 function createEmployee(){
 	var f = document.forms["form_2"]["firstname"].value;
 	var l = document.forms["form_2"]["lastname"].value;	
@@ -50,7 +48,7 @@ function createEmployee(){
 	var j = document.forms["form_2"]["job"].value;
 	var employee1 = new Employee(f, l, i, m, e, j);	
 	if(employee1.i != null){
-		document.getElementById("echo_2").innerHTML = student1.output
+		document.getElementById("echo_2").innerHTML = employee1.output()
 	}
 	else{
 		document.getElementById("echo_2").innerHTML = "Student ID needs to be a number";
