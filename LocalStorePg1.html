@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="LocalStoreScript.js"></script>
+</head>
+<body onLoad="Fill()">
+	<h1> Graph Analysis </h1>
+	<p>Enter your parameters for the graph</p>
+	<form id="define" action=>
+		Number of Nodes<br>
+		<input type="text" id="num_nodes">
+		Labeling of nodes, in terms of n<br>
+		<input type="text" id="node_def">
+		Rule for edges, in terms of n<br>
+		<input type="text" id="edge_def">
+		Analysis to be performed<br>
+		<input type="checkbox">Eulerian<br>
+		<input type="checkbox">Hamiltonian<br>
+		<input type="checkbox">Chromatic Number<br>
+		<input type="checkbox">Chromatic Index<br>
+		<input type="checkbox">Girth<br>
+		<input type="checkbox">Valency<br>
+	</form>
+	<button onclick="Store()">Save</button>
+	<a href="LocalStorePg2.html"><button>Submit</button></a>
+	<br>
+	<p>This page uses Local Storage to store the values input into the form
+	 indefinitely. When you click on the submit button to navigate away from
+	 this page, or if you exit the page or browser, the values you input will 
+	 be saved and automatically re-inserted into the form the next time you 
+	 load the page. This allows the user to run various analyses on a single 
+	 graph at different times without having to re-enter data, helpful because a 
+	 single analysis can take a lot of time, and the user may not wish to do 
+	 all analyses at once.</p>
+</body>
+</html>
