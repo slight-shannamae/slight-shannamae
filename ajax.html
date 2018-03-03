@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+
+<h2>The XMLHttpRequest Object</h2>
+
+<button type="button"
+onclick="loadFile('https://pokeapi.co/api/v2/pokemon/1/', callLoad)">Change Content
+</button>
+</div>
+<div id='load'>
+</div>
+
+<script>
+function loadFile(url, cFunction) {
+var xhttp;
+xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+cFunction(this);
+}
+};
+xhttp.open("GET", url, true);
+xhttp.send();
+}
+
+/* use for loading JSON files */
+function callLoad(xhttp) {
+var jObj = JSON.parse(xhttp.responseText);
+var jText = JSON.stringify(jObj, null, 2);
+document.getElementById("load").innerHTML = jText;
+}
+</script>
+</body>
+</html>
