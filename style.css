@@ -30,7 +30,9 @@ li a:hover {
     background-color: #111;
 }
 h1 {font-family: Remachine, Georgia, sans-serif;
-	padding-left: 100px;}
+	padding-left: 100px;
+	font-size: 56px;
+}
 	
 .active {background-color: black;}
 
