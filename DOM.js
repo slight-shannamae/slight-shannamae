@@ -1,6 +1,6 @@
 function LoadPage(){
 //Remove button
-	var btn = document.getElementByID('load');
+	var btn = document.getElementById('load');
 	body.removeChild(btn);
 //Create Navigation Bar
 	var navigate = document.createElement('nav');
