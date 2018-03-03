@@ -3,12 +3,12 @@ function LoadPage(){
 	var btn = document.getElementById('load');
 	body.removeChild(btn);
 //Create Navigation Bar
-	var navigate = document.createElement('nav');
+	var nav = document.createElement('nav');
 	var list = document.createElement('ul');
 	var home = document.createElement('li');
 	home.innerHTML = "Home";
 	list.appendChild(home);
-	navigate.appendChild(list);
+	nav.appendChild(list);
 //Create Header
 	var header = document.createElement("h1");
 	header.innerHTML = "Shanna-Mae Slight";
