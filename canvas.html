@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <title>Dots</title>
+  <style>
+    canvas {
+      border: #333 10px solid;
+	  float:left;
+	  margin: 5px;
+    }
+ 
+    body {
+      padding: 50px;
+    }
+  </style>
+</head>
+ 
+<body>
+	  <canvas id="myCanvas" width="700px" height="470px"></canvas>
+	  <h1>Let's Paint Dots!</h1>
+	  <form>
+		<h3>What Color Dots Do You Want?</h3>
+		<input type='text' id='color' value='red'>
+		<h3>What Size Dots Do You Want?</h3>
+		<input type='text' id='size' value='50'>
+	  </form>
+	  <h3>Music to Fuel Your Creativity</h3>
+	  <audio controls autoplay loop>
+		  <source src="Two_Pianos.mp3" type="audio/mpeg">
+		  Your browser does not support the audio tag.
+		</audio>
+		<video width="300" height="150" autoplay>
+	  <source src="paint_dots.mp4" type="video/mp4">
+	  Your browser does not support the video tag.
+	</video>
+	  <script>
+  //Create Canvas
+    var canvas = document.querySelector("#myCanvas");
+    var context = canvas.getContext("2d");
+	var canvasPos = getPosition(canvas);
+  //Get Mouse Position
+	var mouseX;
+	var mouseY;
+	canvas.addEventListener("mousedown", setMousePosition, false);
+	
+	function setMousePosition(e) {
+	  mouseX = e.clientX - canvasPos.x;
+	  mouseY = e.clientY - canvasPos.y;
+	}       
+	
+	//Get Mouse Position Relative to Canvas
+	function getPosition(el) {
+	  var xPosition = 0;
+	  var yPosition = 0;
+	 
+	  while (el) {
+		xPosition += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+		yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
+		el = el.offsetParent;
+	  }
+	  return {
+		x: xPosition,
+		y: yPosition
+	  };
+	}
+	function update() {
+	  requestAnimationFrame(update);
+	  context.beginPath();
+	  context.arc(mouseX, mouseY, document.getElementById('size').value, 0, 2 * Math.PI, true);
+	  context.fillStyle = document.getElementById('color').value;
+	  context.fill();
+	}
+	update(); 
+  </script>
+ 
+</body>
+ 
+</html>

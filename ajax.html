@@ -4,33 +4,69 @@
 
 <div id="demo">
 
-<h2>The XMLHttpRequest Object</h2>
+<h2>Pokemon Characteristics</h2>
+<p>Type the name of a pokemon in the box below to load its characteristics</p>
+<form>
+	<input type='text' id='name'>
+</form>
 
 <button type="button"
-onclick="loadFile('https://pokeapi.co/api/v2/pokemon/1/', callLoad)">Change Content
+onclick="loadFile('https://pokeapi.co/api/v2/pokemon/', callLoad)">Load Characteristics
 </button>
 </div>
-<div id='load'>
-</div>
+<pre>
+	<div id='load'>
+	</div>
+</pre>
 
 <script>
 function loadFile(url, cFunction) {
 var xhttp;
+var poke = document.getElementById('name').value;
 xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
 cFunction(this);
 }
 };
-xhttp.open("GET", url, true);
+var url_plus= url + poke;
+xhttp.open("GET", url_plus, true);
 xhttp.send();
 }
 
 /* use for loading JSON files */
 function callLoad(xhttp) {
-var jObj = JSON.parse(xhttp.responseText);
-var jText = JSON.stringify(jObj, null, 2);
-document.getElementById("load").innerHTML = jText;
+	var jObj = JSON.parse(xhttp.responseText);
+	//format and display in table
+	var name = document.createElement('h3');
+	name.innerHTML = jObj.name;
+	document.body.appendChild(name);
+	var table = document.createElement('table');
+	var row1 = document.createElement('tr');
+	var able_head = document.createElement('th');
+	able_head.innerHTML = 'Abilites';
+	row1.appendChild(able_head);
+	table.appendChild(row1);
+	for (var i=0; i<jObj.abilities.length; i++){
+		var row = document.createElement('tr');
+		var content = document.createElement('td');
+		content.innerHTML = jObj.abilities[i].ability.name;
+		row.appendChild(content);
+		table.appendChild(row);
+	}
+	var row1 = document.createElement('tr');
+	var move_head = document.createElement('th');
+	move_head.innerHTML = 'Moves';
+	row1.appendChild(move_head);
+	table.appendChild(row1);
+	for (var i=0; i<jObj.abilities.length; i++){
+		var row = document.createElement('tr');
+		var content = document.createElement('td');
+		content.innerHTML = jObj.moves[i].move.name;
+		row.appendChild(content);
+		table.appendChild(row);
+	}
+	document.body.appendChild(table);
 }
 </script>
 </body>
