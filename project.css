@@ -1,0 +1,98 @@
+body{
+	background: linear-gradient(gray, #d4d6d8);
+	color: white;
+}
+.image-wrapper{
+	float: right;
+	margin-right: 200px;
+}
+.text-wrapper {
+	text-align: left;
+	vertical-align: top;
+	padding-left: 50px;
+	font-size: 64px;
+}
+.animated-words {
+    display: inline-block;
+	margin-top: 200px;
+}
+.animated-words span:nth-child(2) { 
+    -webkit-animation-delay: 3s; 
+    -ms-animation-delay: 3s; 
+    animation-delay: 3s; 
+    color: rgb(89,230,160);
+}
+.animated-words span:nth-child(3) { 
+    -webkit-animation-delay: 6s; 
+    -ms-animation-delay: 6s; 
+    animation-delay: 6s; 
+    color: rgb(74,164,187); 
+}
+.animated-words span:nth-child(4) { 
+    -webkit-animation-delay: 9s; 
+    -ms-animation-delay: 9s; 
+    animation-delay: 9s; 
+    color: rgb(103,203,212);
+}
+.animated-words span:nth-child(5) { 
+    -webkit-animation-delay: 12s; 
+    -ms-animation-delay: 12s; 
+    animation-delay: 12s; 
+    color: rgb(89,230,160);
+}
+.animated-words span:nth-child(6) { 
+    -webkit-animation-delay: 15s; 
+    -ms-animation-delay: 15s; 
+    animation-delay: 15s; 
+    color: rgb(59,143,134);
+}
+.animated-words span {
+    position: absolute;
+    opacity: 0;
+    overflow: hidden;
+    color: #6b969d;
+    -webkit-animation: animateWord 18s linear infinite 0s;
+    -ms-animation: animateWord 18s linear infinite 0s;
+    animation: animateWord 18s linear infinite 0s;
+}
+@-webkit-keyframes animateWord {
+    0% { opacity: 0; }
+    5% { opacity: 0; -webkit-transform: translateY(-200px); }
+    10% { opacity: 1; -webkit-transform: translateY(-60px);}
+    15% { opacity: 1; -webkit-transform: translateY(-60px); }
+    20% { opacity: 0; -webkit-transform: translateY(30px); }
+    80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+wrap{
+  margin: 30px auto;
+  max-width: 1000px;
+  width: 90vw;
+  display: inline-block;
+  justify-content: center;
+  font-family: sans-serif;
+}
+.box{
+	float:left;
+  width: calc(20%);
+  height: calc(80%);
+  margin: 20px 20px;
+  background: rgb(89,230,160);
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+  line-height: 130px;
+}
+
+
+.blue{
+  background-color: rgba(59,143,134,0.5);
+}
+
+.scale{
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+}
+.box:hover .scale{
+  transform: scale(1.5, 1.5);
+}
