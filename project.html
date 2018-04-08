@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<link rel="stylesheet" type="text/css" href="project.css">
+	<script type="text/javascript" src="project.js"></script>
 </head>
 <body>
 	<div class="image-wrapper">
@@ -18,21 +19,24 @@
 		</div>    
 	</div>
 	<br><br>
-	<div class="wrap">
-	  <div class="box">
-		<div class="blue scale">
+	<div class="wrap" id="wrap">
+	  <div class="box" id="emp">
+		<div class="blue scale" onclick="employees()">
 		  Employees
 		</div>
 	  </div>
-	  <div class="box">
-		<div class="blue scale">
+	  <div id="emp_dump"></div>
+	  <div class="box" id="car">
+		<div class="blue scale" onclick="careers()">
 		  Careers
 		</div>
 	  </div> 
-	  <div class="box">
-		<div class="blue scale">
+	  <div id ="car_dump"></div>
+	  <div class="box" id="prod">
+		<div class="blue scale" onclick="products()">
 		  Products
 		</div>
 	  </div> 
+	  <div id="prod_dump"></div>
 	 </div> 
 </body>
